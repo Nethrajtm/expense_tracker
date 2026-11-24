@@ -1,0 +1,189 @@
+/* ExpenseList.css */
+
+/* ---- Container ---- */
+.expense-list-container {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: var(--theme-transition);
+}
+
+/* ---- Table toolbar ---- */
+.list-toolbar {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--clr-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.list-toolbar-left h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--clr-text);
+}
+
+.list-toolbar-left span {
+  font-size: 0.8rem;
+  color: var(--clr-text-muted);
+  margin-left: 0.5rem;
+}
+
+.total-badge {
+  background: var(--clr-primary-lt);
+  color: var(--clr-primary);
+  font-weight: 700;
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-xl);
+  font-size: 0.88rem;
+}
+
+/* ---- Table wrapper ---- */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.expense-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+/* Head */
+.expense-table thead tr {
+  background: var(--clr-surface-alt);
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.expense-table th {
+  padding: 0.75rem 1.25rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--clr-text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.expense-table th.col-amount,
+.expense-table th.col-actions {
+  text-align: right;
+}
+
+/* Body */
+.expense-table tbody tr {
+  border-bottom: 1px solid var(--clr-border);
+  transition: background var(--transition);
+}
+
+.expense-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.expense-table tbody tr:hover {
+  background: var(--clr-surface-alt);
+}
+
+.expense-table td {
+  padding: 1rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--clr-text);
+  vertical-align: middle;
+}
+
+/* Date cell */
+.td-date .date-primary {
+  font-weight: 600;
+  color: var(--clr-text);
+}
+
+.td-date .date-secondary {
+  font-size: 0.75rem;
+  color: var(--clr-text-muted);
+  margin-top: 1px;
+}
+
+/* Amount cell */
+.td-amount {
+  text-align: right;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--clr-text);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Category tag */
+.category-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-xl);
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.category-tag .tag-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Note cell */
+.td-note {
+  color: var(--clr-text-muted);
+  max-width: 220px;
+}
+
+.note-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+
+.note-empty {
+  color: var(--clr-text-light);
+  font-style: italic;
+  font-size: 0.82rem;
+}
+
+/* Actions */
+.td-actions {
+  text-align: right;
+}
+
+.btn-delete {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background: none;
+  border: 1.5px solid var(--clr-border);
+  color: var(--clr-text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.btn-delete:hover {
+  background: var(--clr-danger-lt);
+  border-color: var(--clr-danger);
+  color: var(--clr-danger);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+  .expense-table { min-width: 480px; }
+  .expense-table th,
+  .expense-table td { padding: 0.75rem 0.9rem; }
+}

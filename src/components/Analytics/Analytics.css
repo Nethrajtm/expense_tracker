@@ -1,0 +1,409 @@
+/* Analytics.css */
+
+.analytics-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ---- Analytics Toolbar / Action Bar ---- */
+.analytics-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: var(--theme-transition);
+}
+
+.analytics-toolbar-info h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--clr-text);
+}
+
+.analytics-toolbar-info p {
+  font-size: 0.85rem;
+  color: var(--clr-text-muted);
+  margin-top: 0.2rem;
+}
+
+.analytics-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-export-csv {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  background: var(--clr-surface-alt);
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--clr-text);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn-export-csv:hover:not(:disabled) {
+  background: var(--clr-primary-lt);
+  border-color: var(--clr-primary);
+  color: var(--clr-primary-dk);
+  transform: translateY(-1px);
+}
+
+.btn-export-csv:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Toast message for CSV export */
+.export-toast {
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-weight: 600;
+  animation: fadeIn 0.2s ease;
+}
+
+.export-toast.success {
+  background: var(--clr-success-lt);
+  color: var(--clr-success);
+  border: 1px solid var(--clr-success);
+}
+
+.export-toast.warning {
+  background: var(--clr-warning-lt);
+  color: var(--clr-warning);
+  border: 1px solid var(--clr-warning);
+}
+
+/* ---- Monthly Summary Cards Grid ---- */
+.monthly-summary-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.summary-metric-card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.75rem;
+  transition: var(--theme-transition), transform var(--transition);
+}
+
+.summary-metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.metric-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--clr-text-muted);
+  letter-spacing: 0.04em;
+}
+
+.metric-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-xl);
+}
+
+.metric-badge.increase {
+  background: var(--clr-danger-lt);
+  color: var(--clr-danger);
+  border: 1px solid var(--clr-danger);
+}
+
+.metric-badge.decrease {
+  background: var(--clr-success-lt);
+  color: var(--clr-success);
+  border: 1px solid var(--clr-success);
+}
+
+.metric-badge.neutral {
+  background: var(--clr-surface-alt);
+  color: var(--clr-text-muted);
+  border: 1px solid var(--clr-border);
+}
+
+.metric-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--clr-text);
+  line-height: 1.2;
+}
+
+.metric-comparison {
+  font-size: 0.82rem;
+  color: var(--clr-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.metric-comparison strong {
+  color: var(--clr-text);
+}
+
+/* ---- Charts Grid ---- */
+.analytics-charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.chart-card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 0;
+  transition: var(--theme-transition);
+}
+
+.chart-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--clr-border);
+  padding-bottom: 1rem;
+}
+
+.chart-card-title h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--clr-text);
+}
+
+.chart-card-title p {
+  font-size: 0.8rem;
+  color: var(--clr-text-muted);
+  margin-top: 0.15rem;
+}
+
+.month-filter-select {
+  padding: 0.45rem 0.85rem;
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--clr-text);
+  background: var(--clr-surface-alt);
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+
+.month-filter-select:focus {
+  border-color: var(--clr-primary);
+  background: var(--clr-surface);
+}
+
+/* Category chart & legend container */
+.category-breakdown-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.chart-viewport-wrap {
+  width: 100%;
+  height: 260px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-viewport-wrap--tall {
+  height: 320px;
+}
+
+.donut-center-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.donut-center-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--clr-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.donut-center-val {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--clr-text);
+  margin-top: 0.1rem;
+}
+
+/* Category Breakdown items list */
+.category-breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.category-breakdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  background: var(--clr-surface-alt);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+}
+
+.cat-item-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cat-color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cat-item-name {
+  font-weight: 600;
+  color: var(--clr-text);
+}
+
+.cat-item-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cat-item-amount {
+  font-weight: 700;
+  color: var(--clr-text);
+}
+
+.cat-item-pct {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.15rem 0.45rem;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  color: var(--clr-text-muted);
+}
+
+/* Custom Tooltip */
+.custom-recharts-tooltip {
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  font-size: 0.82rem;
+}
+
+.custom-recharts-tooltip .tooltip-title {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: #f8fafc;
+}
+
+.custom-recharts-tooltip .tooltip-val {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #60a5fa;
+}
+
+.custom-recharts-tooltip .tooltip-sub {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-top: 0.2rem;
+}
+
+/* Empty Chart Placeholder */
+.chart-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 260px;
+  color: var(--clr-text-muted);
+  gap: 0.5rem;
+}
+
+.chart-empty-icon {
+  font-size: 2.2rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .analytics-charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .analytics-toolbar {
+    padding: 1rem 1.15rem;
+  }
+  .chart-card {
+    padding: 1.15rem;
+  }
+  .summary-metric-card {
+    padding: 1.15rem;
+  }
+  .metric-value {
+    font-size: 1.45rem;
+  }
+  .btn-export-csv {
+    width: 100%;
+    justify-content: center;
+  }
+}
