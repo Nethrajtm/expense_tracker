@@ -1,0 +1,345 @@
+/* Database.css */
+
+.database-view {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ---- 3-Card Database Status Grid ---- */
+.db-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.db-stat-card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  transition: var(--theme-transition);
+}
+
+.db-stat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.db-stat-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--clr-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.db-live-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-xl);
+  background: var(--clr-success-lt);
+  color: var(--clr-success);
+  border: 1px solid var(--clr-success);
+}
+
+.db-sync-pulse {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-xl);
+  background: var(--clr-primary-lt);
+  color: var(--clr-primary);
+  border: 1px solid var(--clr-primary);
+}
+
+.db-clock-icon {
+  font-size: 0.9rem;
+}
+
+.db-stat-val {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--clr-text);
+  line-height: 1.2;
+}
+
+.db-stat-unit {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--clr-text-muted);
+}
+
+.db-stat-sub {
+  font-size: 0.8rem;
+  color: var(--clr-text-muted);
+}
+
+/* ---- Action Toolbar ---- */
+.db-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: var(--theme-transition);
+}
+
+.db-toolbar h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--clr-text);
+}
+
+.db-toolbar p {
+  font-size: 0.82rem;
+  color: var(--clr-text-muted);
+  margin-top: 0.2rem;
+  max-width: 650px;
+}
+
+.db-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-db-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: var(--radius-md);
+  font-size: 0.84rem;
+  font-weight: 600;
+  border: 1px solid var(--clr-border);
+  background: var(--clr-surface-alt);
+  color: var(--clr-text);
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.btn-db-action:hover {
+  background: var(--clr-primary-lt);
+  border-color: var(--clr-primary);
+  color: var(--clr-primary);
+}
+
+.btn-db-simulate {
+  background: var(--clr-primary);
+  border-color: var(--clr-primary);
+  color: #fff;
+}
+
+.btn-db-simulate:hover {
+  background: var(--clr-primary-dk);
+  border-color: var(--clr-primary-dk);
+  color: #fff;
+}
+
+.btn-db-reset:hover {
+  background: var(--clr-danger-lt);
+  border-color: var(--clr-danger);
+  color: var(--clr-danger);
+}
+
+/* ---- Live Database Audit Log Card ---- */
+.db-logs-card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--theme-transition);
+}
+
+.db-logs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--clr-border);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.db-logs-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--clr-text);
+}
+
+.db-logs-header p {
+  font-size: 0.8rem;
+  color: var(--clr-text-muted);
+  margin-top: 0.15rem;
+}
+
+.db-live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--clr-success);
+}
+
+.pulsing-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--clr-success);
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.db-logs-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.db-log-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.5rem;
+  border-bottom: 1px solid var(--clr-border);
+  font-size: 0.85rem;
+  gap: 1rem;
+  transition: background-color var(--transition);
+}
+
+.db-log-item:last-child {
+  border-bottom: none;
+}
+
+.db-log-item:hover {
+  background: var(--clr-surface-alt);
+}
+
+.db-log-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.db-action-tag {
+  font-family: monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+.action-save {
+  background: var(--clr-success-lt);
+  color: var(--clr-success);
+  border: 1px solid var(--clr-success);
+}
+
+.action-delete {
+  background: var(--clr-danger-lt);
+  color: var(--clr-danger);
+  border: 1px solid var(--clr-danger);
+}
+
+.action-info {
+  background: var(--clr-primary-lt);
+  color: var(--clr-primary);
+  border: 1px solid var(--clr-primary);
+}
+
+.db-log-time {
+  font-size: 0.76rem;
+  color: var(--clr-text-muted);
+}
+
+.db-log-details {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.db-log-detail-badge {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+  background: var(--clr-surface-alt);
+  border: 1px solid var(--clr-border);
+  color: var(--clr-text);
+  font-weight: 500;
+}
+
+.db-log-note {
+  font-size: 0.8rem;
+  color: var(--clr-text-muted);
+  font-style: italic;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.db-logs-empty {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: var(--clr-text-muted);
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .db-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .db-log-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .db-log-details {
+    justify-content: flex-start;
+  }
+  .btn-db-action {
+    width: 100%;
+    justify-content: center;
+  }
+}

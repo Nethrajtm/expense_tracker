@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { id: "expenses", label: "Expenses" },
   { id: "categories", label: "Categories" },
   { id: "analytics", label: "Analytics" },
+  { id: "database", label: "Database" },
 ];
 
 function SunIcon() {
